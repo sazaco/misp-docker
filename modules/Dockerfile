@@ -7,8 +7,8 @@ FROM "${DOCKER_HUB_PROXY}python:3.12-slim-bookworm" AS python-build
     ARG MODULES_FLAVOR
 
     # Uncomment when building in corporate environments
-    # COPY ./cert.pem /usr/local/share/ca-certificates/rootca.pem
-    # COPY ./cert.pem /usr/lib/ssl/cert.pem
+    COPY ./cert.pem /usr/local/share/ca-certificates/rootca.pem
+    COPY ./cert.pem /usr/lib/ssl/cert.pem
 
     RUN <<-EOF
         apt-get update
